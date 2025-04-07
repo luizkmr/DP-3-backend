@@ -1,6 +1,7 @@
 {
   "name": "typebot-diagnostico",
   "version": "1.0.0",
+  "type": "module",
   "description": "Backend para análise de diagnóstico empresarial",
   "main": "src/index.js",
   "scripts": {
