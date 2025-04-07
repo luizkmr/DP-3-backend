@@ -68,14 +68,15 @@ SIGA perfeitamente toda estas sessões e preencha com os dados das análises cri
 ---  
 Dados do Formulário:
 ${JSON.stringify(form, null, 2)}
-  
-Retorne:
-1. Diagnóstico Estratégico
-2. Oportunidades e Ameaças
-3. Projeção de Faturamento (baseado em vendas e ticket médio)
-4. Plano de Ação em tópicos
 
-Formato em JSON.
+Retorne estritamente no seguinte formato JSON:
+
+{
+  "diagnostico": "Texto aqui...",
+  "oportunidades": "Texto aqui...",
+  "faturamento": "Texto aqui...",
+  "plano_acao": "Texto ou array de ações aqui"
+}
   `
 
   try {
