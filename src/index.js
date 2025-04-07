@@ -94,8 +94,16 @@ Retorne estritamente no seguinte formato JSON:
     })
 
     const data = await openaiRes.json()
-    const resposta = data.choices?.[0]?.message?.content || 'Erro na análise.'
-    res.json({ result: resposta })
+
+    let resposta
+    try {
+      resposta = JSON.parse(data.choices?.[0]?.message?.content)
+    } catch (e) {
+      console.error('Erro ao fazer parse do JSON da IA:', e)
+      return res.status(500).json({ error: 'Resposta da IA inválida. Verifique se o formato está correto.' })
+    }
+
+    res.json(resposta)
 
   } catch (err) {
     console.error('Erro na análise:', err)
